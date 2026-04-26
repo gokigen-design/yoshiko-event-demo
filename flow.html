@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美子さん 月次運用フロー</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  background: #f8f4ef;
+  color: #333;
+  font-size: 13px;
+  line-height: 1.6;
+  padding: 20px 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 18px;
+  color: #6D2E46;
+  border-bottom: 2px solid #C4956A;
+  padding-bottom: 6px;
+  margin-bottom: 14px;
+}
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #6D2E46;
+  margin-bottom: 8px;
+  padding-left: 8px;
+  border-left: 3px solid #C4956A;
+}
+/* Flow */
+.flow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.flow-step {
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12px;
+  flex: 1;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  border-top: 3px solid #C4956A;
+}
+.flow-arrow { color: #C4956A; font-size: 16px; flex-shrink: 0; }
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+th {
+  background: #6D2E46;
+  color: #fff;
+  padding: 6px 8px;
+  text-align: left;
+  font-weight: 500;
+}
+td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #e8e0d8;
+}
+tr:nth-child(even) td { background: #faf6f2; }
+.total-row td {
+  font-weight: 700;
+  background: #f0e8df;
+  border-top: 2px solid #C4956A;
+}
+/* Highlight */
+.highlight {
+  background: linear-gradient(135deg, #6D2E46, #8B4B6B);
+  color: #fff;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-top: 14px;
+}
+.highlight-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.highlight p { font-size: 13px; }
+/* Check list */
+.checks {
+  margin-top: 8px;
+}
+.check-item {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 3px;
+  font-size: 12px;
+}
+/* Result */
+.result-box {
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px 14px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.result-item {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+</style>
+</head>
+<body>
+
+<h1>美子さん LINE + WP 月次運用フロー</h1>
+
+<!-- Flow -->
+<div class="flow">
+  <div class="flow-step"><strong>美子さん</strong><br>イベント情報を伝える</div>
+  <div class="flow-arrow">&#9654;</div>
+  <div class="flow-step"><strong>スプシ</strong><br>情報をまとめる</div>
+  <div class="flow-arrow">&#9654;</div>
+  <div class="flow-step"><strong>LINE + WP</strong><br>それぞれ更新</div>
+  <div class="flow-arrow">&#9654;</div>
+  <div class="flow-step"><strong>確認</strong><br>二人でチェック</div>
+</div>
+
+<div class="two-col">
+  <!-- Left: 作業内訳 -->
+  <div>
+    <div class="section-title">作業の内訳</div>
+    <table>
+      <tr><th>作業</th><th>時間</th><th>内容</th></tr>
+      <tr><td>スプシまとめ</td><td>10分</td><td>イベント名・日時・画像・URL記入</td></tr>
+      <tr><td>LINEカード更新</td><td>20分</td><td>カードタイプ5枚作成・キーワード応答設定</td></tr>
+      <tr><td>WP更新</td><td>20分</td><td>イベントページ更新・申込リンク設置</td></tr>
+      <tr><td>動作確認</td><td>10分</td><td>二人でLINE・WPをチェック</td></tr>
+      <tr class="total-row"><td>合計</td><td colspan="2">約1時間 / 月</td></tr>
+    </table>
+
+    <div class="highlight">
+      <div class="highlight-title">提案：月1回「更新会」をやりませんか？</div>
+      <p>毎月 月末の金曜に、二人でZoomを繋いで1時間で全部終わらせる。</p>
+      <div class="checks">
+        <div class="check-item"><span>&#10004;</span><span>一人だと後回し → 一緒なら確実に終わる</span></div>
+        <div class="check-item"><span>&#10004;</span><span>美子さんにも期限を伝えやすい</span></div>
+        <div class="check-item"><span>&#10004;</span><span>確認も一緒にできてミスが減る</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: スケジュール & 結果 -->
+  <div>
+    <div class="section-title">月間スケジュール</div>
+    <div class="result-box" style="margin-bottom: 12px;">
+      <div class="result-item"><span>&#9654;</span><span><strong>毎月25日前後：</strong>美子さんからイベント情報をもらう</span></div>
+      <div class="result-item"><span>&#9654;</span><span><strong>月末の金曜：</strong>二人で1時間の更新会</span></div>
+      <div class="result-item"><span>&#9654;</span><span><strong>翌月1日〜：</strong>自動配信スタート</span></div>
+    </div>
+
+    <div class="section-title">これが回れば</div>
+    <div class="result-box" style="margin-bottom: 12px;">
+      <div class="result-item"><span>&#9733;</span><span><strong>美子さん：</strong>スケジュールを伝えるだけ</span></div>
+      <div class="result-item"><span>&#9733;</span><span><strong>私たち：</strong>月1回、1時間だけ。あとは自動</span></div>
+      <div class="result-item"><span>&#9733;</span><span><strong>急な追加：</strong>別途対応（ルールを事前に決める）</span></div>
+    </div>
+
+    <div class="section-title">金額の目安</div>
+    <table>
+      <tr><th>項目</th><th>金額</th></tr>
+      <tr><td>初期構築（自動配信・リッチメニュー等）</td><td>5〜10万円</td></tr>
+      <tr><td>月額運用（更新会 + 自動配信管理）</td><td>1.5〜3万円/月</td></tr>
+      <tr><td>臨時対応（急なイベント告知等）</td><td>3,000〜5,000円/回</td></tr>
+    </table>
+    <p style="font-size: 11px; color: #888; margin-top: 6px;">※ 金額はチカナンと相談して決めましょう</p>
+  </div>
+</div>
+
+</body>
+</html>

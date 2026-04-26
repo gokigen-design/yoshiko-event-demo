@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>最新のイベント情報 | Today Japan株式会社</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #fff;
+  color: #333;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* ===== ヘッダー ===== */
+.wp-header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 14px 0;
+}
+.wp-header-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+.wp-logo {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #B22222;
+}
+.wp-logo span {
+  font-size: 11px;
+  color: #999;
+  display: block;
+  font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+.wp-nav {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+}
+.wp-nav a {
+  color: #666;
+  text-decoration: none;
+}
+.wp-nav a.active {
+  color: #B22222;
+  font-weight: 500;
+}
+
+/* ===== ヒーロー ===== */
+.hero {
+  background: #B22222;
+  color: #fff;
+  text-align: center;
+  padding: 40px 24px 36px;
+  position: relative;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #C9A84C, #D4B96A, #C9A84C);
+}
+.hero h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+.hero p {
+  font-size: 13px;
+  margin-top: 6px;
+  opacity: 0.85;
+}
+.hero-month {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 4px;
+  padding: 5px 20px;
+  margin-top: 14px;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+/* ===== メイン ===== */
+.main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 28px 24px 50px;
+}
+
+/* ===== お知らせ ===== */
+.notice-bar {
+  background: #FFF8EE;
+  border-left: 4px solid #C9A84C;
+  padding: 12px 18px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  color: #7A6530;
+}
+
+/* ===== イベントカード ===== */
+.event-card {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 0;
+  background: #fff;
+  border: 1px solid #eee;
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s;
+}
+.event-card:hover {
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+.event-img-placeholder {
+  width: 260px;
+  height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  line-height: 1.5;
+  padding: 20px;
+}
+.img-kotoba { background: #B22222; }
+.img-comm { background: #2B5F8A; }
+.img-kimono { background: #8A6B2B; }
+.img-live { background: #6B2B8A; }
+.img-team { background: #2B8A5F; }
+
+.event-body {
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.event-tags {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+.tag {
+  font-size: 11px;
+  padding: 2px 10px;
+  border-radius: 2px;
+  font-weight: 500;
+}
+.tag-seminar { background: #FDEAEA; color: #B22222; }
+.tag-online { background: #EAF0FD; color: #2B5F8A; }
+.tag-offline { background: #FDF5EA; color: #8A6B2B; }
+.tag-new { background: #B22222; color: #fff; }
+.tag-popular { background: #C9A84C; color: #fff; }
+
+.event-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 4px;
+}
+.event-subtitle {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 10px;
+}
+.event-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  color: #555;
+}
+.event-info-row {
+  display: flex;
+  gap: 8px;
+}
+.event-info-label {
+  color: #B22222;
+  font-weight: 500;
+  min-width: 48px;
+}
+.event-btn {
+  display: inline-block;
+  background: #B22222;
+  color: #fff;
+  text-decoration: none;
+  padding: 9px 26px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+  letter-spacing: 1px;
+  transition: background 0.3s;
+}
+.event-btn:hover { background: #9A1C1C; }
+
+/* ===== フッター ===== */
+.wp-footer {
+  background: #333;
+  color: #aaa;
+  text-align: center;
+  padding: 20px;
+  font-size: 12px;
+}
+.wp-footer a { color: #C9A84C; text-decoration: none; }
+
+/* ===== DEMOバッジ ===== */
+.demo-badge {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #B22222;
+  color: #fff;
+  padding: 4px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  z-index: 999;
+  letter-spacing: 2px;
+}
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 700px) {
+  .event-card { grid-template-columns: 1fr; }
+  .event-img-placeholder { width: 100%; height: 160px; }
+  .wp-nav { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo-badge">DEMO</div>
+
+<header class="wp-header">
+  <div class="wp-header-inner">
+    <div class="wp-logo">
+      Today Japan
+      <span>株式会社</span>
+    </div>
+    <nav class="wp-nav">
+      <a href="#">ホーム</a>
+      <a href="#">代表の想い</a>
+      <a href="#">企業の方</a>
+      <a href="#">子育て世代の方</a>
+      <a href="#">輝きたい女性の方</a>
+      <a href="#" class="active">イベント</a>
+      <a href="#">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>最新のイベント情報</h1>
+  <p>Today Japanが開催するセミナー・ワークショップのご案内</p>
+  <div class="hero-month">2026年 5月</div>
+</div>
+
+<div class="main">
+
+  <div class="notice-bar">
+    各イベントは定員になり次第締め切りとなります。お早めにお申し込みください。
+  </div>
+
+  <div class="event-card">
+    <div class="event-img-placeholder img-kotoba">-対話型-<br>言葉がけ講座</div>
+    <div class="event-body">
+      <div class="event-tags">
+        <span class="tag tag-popular">人気</span>
+        <span class="tag tag-seminar">セミナー</span>
+        <span class="tag tag-offline">対面</span>
+      </div>
+      <div class="event-title">言葉がけ講座</div>
+      <div class="event-subtitle">言葉が豊かだと人生も豊かになる - ボキャブラリーシートで語彙力UP</div>
+      <div class="event-info">
+        <div class="event-info-row"><span class="event-info-label">日時</span><span>2026年5月10日（土）10:00〜12:00</span></div>
+        <div class="event-info-row"><span class="event-info-label">場所</span><span>東京都内（お申込後にご案内）</span></div>
+        <div class="event-info-row"><span class="event-info-label">定員</span><span>15名</span></div>
+        <div class="event-info-row"><span class="event-info-label">料金</span><span>5,500円（税込）</span></div>
+      </div>
+      <a href="#" class="event-btn">お申込みはこちら</a>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-img-placeholder img-comm">アライブ・ワンの<br>コミュニケーション<br>カード</div>
+    <div class="event-body">
+      <div class="event-tags">
+        <span class="tag tag-seminar">セミナー</span>
+        <span class="tag tag-offline">対面</span>
+      </div>
+      <div class="event-title">コミュニケーションセミナー</div>
+      <div class="event-subtitle">個性を自分らしく発揮しながら人生を豊かに生きましょう</div>
+      <div class="event-info">
+        <div class="event-info-row"><span class="event-info-label">日時</span><span>2026年5月17日（土）13:00〜15:00</span></div>
+        <div class="event-info-row"><span class="event-info-label">場所</span><span>東京都内（お申込後にご案内）</span></div>
+        <div class="event-info-row"><span class="event-info-label">定員</span><span>20名</span></div>
+        <div class="event-info-row"><span class="event-info-label">料金</span><span>3,300円（税込）</span></div>
+      </div>
+      <a href="#" class="event-btn">お申込みはこちら</a>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-img-placeholder img-kimono">KIMONO<br>THERAPY</div>
+    <div class="event-body">
+      <div class="event-tags">
+        <span class="tag tag-new">NEW</span>
+        <span class="tag tag-offline">対面</span>
+      </div>
+      <div class="event-title">KIMONO THERAPY</div>
+      <div class="event-subtitle">手ぶらで参加できる着物での撮影プラン - 心と身体を癒すセラピー</div>
+      <div class="event-info">
+        <div class="event-info-row"><span class="event-info-label">日時</span><span>2026年5月24日（土）10:00〜16:00</span></div>
+        <div class="event-info-row"><span class="event-info-label">場所</span><span>鎌倉（お申込後にご案内）</span></div>
+        <div class="event-info-row"><span class="event-info-label">定員</span><span>6名</span></div>
+        <div class="event-info-row"><span class="event-info-label">料金</span><span>15,000円（税込）</span></div>
+      </div>
+      <a href="#" class="event-btn">お申込みはこちら</a>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-img-placeholder img-live">結ぶ<br>ライブトーク</div>
+    <div class="event-body">
+      <div class="event-tags">
+        <span class="tag tag-online">オンライン</span>
+        <span class="tag tag-popular">毎週開催</span>
+      </div>
+      <div class="event-title">結ぶライブトーク</div>
+      <div class="event-subtitle">毎週土曜日のオープンチャット - お気軽にご参加ください</div>
+      <div class="event-info">
+        <div class="event-info-row"><span class="event-info-label">日時</span><span>毎週土曜 12:30〜（約30分）</span></div>
+        <div class="event-info-row"><span class="event-info-label">場所</span><span>LINEオープンチャット</span></div>
+        <div class="event-info-row"><span class="event-info-label">料金</span><span>無料</span></div>
+      </div>
+      <a href="#" class="event-btn">オープンチャットに参加</a>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-img-placeholder img-team">TEAM<br>Today Japan</div>
+    <div class="event-body">
+      <div class="event-tags">
+        <span class="tag tag-new">メンバー募集中</span>
+      </div>
+      <div class="event-title">TEAM Today Japan</div>
+      <div class="event-subtitle">コミュニティにご興味ありますか？ - 一緒に学び、成長しましょう</div>
+      <div class="event-info">
+        <div class="event-info-row"><span class="event-info-label">形式</span><span>オンライン + 対面イベント</span></div>
+        <div class="event-info-row"><span class="event-info-label">内容</span><span>月1回の勉強会 + 交流会</span></div>
+        <div class="event-info-row"><span class="event-info-label">料金</span><span>月額 3,300円（税込）</span></div>
+      </div>
+      <a href="#" class="event-btn">詳細を知りたい</a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="wp-footer">
+  <p>Today Japan株式会社 | 営業時間 9:00〜18:00</p>
+  <p style="margin-top: 4px;"><a href="#">ホーム</a> | <a href="#">お問い合わせ</a> | <a href="#">プライバシーポリシー</a></p>
+  <p style="margin-top: 6px;">&copy; 2026 Today Japan Inc. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
