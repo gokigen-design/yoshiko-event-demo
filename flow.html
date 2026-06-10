@@ -3,185 +3,1174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>美子さん 月次運用フロー</title>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<title>LINE + ホームページ 運用サポートのご提案</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: 'Zen Maru Gothic', sans-serif;
   background: #f8f4ef;
   color: #333;
-  font-size: 13px;
-  line-height: 1.6;
-  padding: 20px 24px;
-  max-width: 960px;
+  font-size: 15px;
+  line-height: 1.9;
+  padding: 24px;
+  max-width: 720px;
   margin: 0 auto;
 }
 h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 24px;
+  color: #6D2E46;
+  text-align: center;
+  margin-bottom: 6px;
+}
+.subtitle {
+  text-align: center;
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 28px;
+}
+h2 {
   font-size: 18px;
   color: #6D2E46;
-  border-bottom: 2px solid #C4956A;
-  padding-bottom: 6px;
+  margin-top: 36px;
   margin-bottom: 14px;
+  padding-left: 12px;
+  border-left: 4px solid #C4956A;
 }
-.two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
+p { margin-bottom: 10px; }
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
-.section-title {
-  font-size: 14px;
-  font-weight: 700;
-  color: #6D2E46;
-  margin-bottom: 8px;
+.card ul { padding-left: 20px; margin-top: 8px; }
+.card li { margin-bottom: 4px; }
+.note {
+  font-size: 13px;
+  color: #888;
+  margin-top: 8px;
   padding-left: 8px;
-  border-left: 3px solid #C4956A;
+  border-left: 2px solid #ddd;
 }
-/* Flow */
-.flow {
+/* フロー */
+.flow-vertical {
   display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 14px;
+  flex-direction: column;
+  gap: 0;
+  margin: 16px 0;
 }
 .flow-step {
   background: #fff;
-  border-radius: 8px;
-  padding: 8px 10px;
-  font-size: 12px;
-  flex: 1;
+  border-radius: 10px;
+  padding: 14px 18px;
+  border-left: 4px solid #C4956A;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+.flow-arrow {
   text-align: center;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  border-top: 3px solid #C4956A;
+  font-size: 20px;
+  color: #C4956A;
+  padding: 4px 0;
 }
-.flow-arrow { color: #C4956A; font-size: 16px; flex-shrink: 0; }
-/* Table */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 12px;
+/* ルール */
+.rule-box {
+  background: #fff;
+  border: 2px solid #C4956A;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
 }
-th {
-  background: #6D2E46;
-  color: #fff;
-  padding: 6px 8px;
-  text-align: left;
-  font-weight: 500;
+.rule-item {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  align-items: flex-start;
 }
-td {
-  padding: 6px 8px;
-  border-bottom: 1px solid #e8e0d8;
-}
-tr:nth-child(even) td { background: #faf6f2; }
-.total-row td {
+.rule-icon {
+  flex-shrink: 0;
+  width: 20px;
+  text-align: center;
+  color: #C4956A;
   font-weight: 700;
-  background: #f0e8df;
-  border-top: 2px solid #C4956A;
 }
-/* Highlight */
-.highlight {
+/* ハイライト */
+.highlight-box {
   background: linear-gradient(135deg, #6D2E46, #8B4B6B);
   color: #fff;
-  border-radius: 10px;
-  padding: 14px 16px;
-  margin-top: 14px;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
 }
-.highlight-title {
-  font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 6px;
+.highlight-box h2 {
+  color: #fff;
+  border-left-color: #C4956A;
+  margin-top: 0;
 }
-.highlight p { font-size: 13px; }
-/* Check list */
-.checks {
-  margin-top: 8px;
-}
-.check-item {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 3px;
+.highlight-box p { margin-top: 8px; }
+/* フェーズ */
+.phase-label {
+  display: inline-block;
+  color: #fff;
   font-size: 12px;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 4px;
+  margin-bottom: 8px;
 }
-/* Result */
+.phase-1 { background: #6D2E46; }
+.phase-2 { background: #2B5F8A; }
+.phase-3 { background: #2B8A5F; }
+/* 結果 */
 .result-box {
-  background: #fff;
-  border-radius: 10px;
-  padding: 12px 14px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  background: #f0e8df;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
 }
 .result-item {
   display: flex;
-  gap: 6px;
-  margin-bottom: 4px;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+/* イメージ画像（CSS描画） */
+.mockup {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 16px 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.mockup-header {
+  background: #B22222;
+  color: #fff;
+  padding: 16px 20px;
+  text-align: center;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  position: relative;
+}
+.mockup-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #C9A84C, #D4B96A, #C9A84C);
+}
+.mockup-header small {
+  display: block;
   font-size: 12px;
+  font-weight: 400;
+  opacity: 0.8;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  letter-spacing: 0;
+  margin-top: 2px;
+}
+.mockup-body {
+  padding: 16px;
+}
+.mockup-event {
+  display: flex;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid #eee;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.mockup-event-img {
+  width: 80px;
+  height: 60px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  flex-shrink: 0;
+}
+.mockup-event-body { flex: 1; }
+.mockup-event-title { font-size: 14px; font-weight: 700; color: #333; }
+.mockup-event-date { font-size: 12px; color: #888; }
+.mockup-event-btn {
+  background: #B22222;
+  color: #fff;
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 4px;
+}
+.mockup-caption {
+  text-align: center;
+  font-size: 13px;
+  color: #888;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+/* LINE mockup */
+.line-mockup {
+  background: #7AABCF;
+  border-radius: 10px;
+  padding: 16px;
+  margin: 16px 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.line-card-row {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+.line-card {
+  background: #fff;
+  border-radius: 10px;
+  min-width: 160px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+.line-card-img {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+.line-card-body {
+  padding: 10px 12px;
+}
+.line-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #333;
+}
+.line-card-sub {
+  font-size: 11px;
+  color: #888;
+}
+.line-card-link {
+  font-size: 11px;
+  color: #2B5F8A;
+  margin-top: 6px;
+  display: block;
+}
+/* カレンダー・タイムライン */
+.calendar-wrap {
+  margin: 16px 0 20px;
+}
+.cal-month-row {
+  display: flex;
+  margin-bottom: 4px;
+}
+.cal-month {
+  flex: 1;
+  text-align: center;
+  padding: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 8px 8px 0 0;
+}
+.cal-prev {
+  background: #E8D5C4;
+  color: #6D2E46;
+}
+.cal-prep {
+  background: #C4956A;
+  color: #fff;
+}
+.cal-current {
+  background: #6D2E46;
+  color: #fff;
+}
+.timeline {
+  position: relative;
+  padding-left: 80px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 64px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, #C4956A 0%, #C4956A 75%, #6D2E46 75%, #6D2E46 100%);
+  border-radius: 2px;
+}
+.tl-item {
+  position: relative;
+  display: flex;
+  gap: 0;
+  margin-bottom: 6px;
+}
+.tl-date {
+  position: absolute;
+  left: -80px;
+  width: 72px;
+  text-align: right;
+  font-size: 15px;
+  font-weight: 700;
+  color: #6D2E46;
+  padding-top: 10px;
+}
+.tl-day {
+  font-size: 12px;
+  font-weight: 400;
+  color: #999;
+}
+.tl-content {
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-left: 16px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  flex: 1;
+  position: relative;
+}
+.tl-content::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 14px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 3px solid #C4956A;
+  background: #fff;
+}
+.tl-step5 .tl-content::before {
+  border-color: #6D2E46;
+}
+.tl-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 4px;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.tl-label-1 { background: #C4956A; }
+.tl-label-2 { background: #B8860B; }
+.tl-label-3 { background: #2B8A5F; }
+.tl-label-4 { background: #2B5F8A; }
+.tl-label-5 { background: #6D2E46; }
+.tl-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #333;
+}
+.tl-desc {
+  font-size: 13px;
+  color: #777;
+  margin-top: 2px;
+}
+.tl-who {
+  display: inline-block;
+  font-size: 11px;
+  background: #f0e8df;
+  color: #6D2E46;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-top: 6px;
+  font-weight: 500;
+}
+.scope-box {
+  background: #FFF8EE;
+  border-left: 4px solid #C4956A;
+  padding: 16px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+  color: #7A6530;
+}
+
+/* ===== レスポンシブ（スマホ） ===== */
+@media (max-width: 600px) {
+  body {
+    padding: 16px;
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  h2 {
+    font-size: 16px;
+    margin-top: 28px;
+  }
+  .card {
+    padding: 16px;
+  }
+  .card li {
+    font-size: 14px;
+  }
+  /* フロー */
+  .flow-step {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+  /* モックアップ */
+  .mockup-header {
+    font-size: 15px;
+    padding: 12px 14px;
+    letter-spacing: 1px;
+  }
+  .mockup-header small {
+    font-size: 11px;
+  }
+  .mockup-body {
+    padding: 10px;
+  }
+  .mockup-event {
+    padding: 10px;
+    gap: 10px;
+  }
+  .mockup-event-img {
+    width: 60px;
+    height: 48px;
+    font-size: 10px;
+  }
+  .mockup-event-title {
+    font-size: 13px;
+  }
+  .mockup-event-date {
+    font-size: 11px;
+  }
+  .mockup-event-btn {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+  /* LINEモックアップ */
+  .line-mockup {
+    padding: 10px;
+  }
+  .line-card {
+    min-width: 140px;
+  }
+  .line-card-img {
+    height: 70px;
+    font-size: 12px;
+  }
+  .line-card-body {
+    padding: 8px 10px;
+  }
+  .line-card-title {
+    font-size: 12px;
+  }
+  /* タイムライン */
+  .timeline {
+    padding-left: 60px;
+  }
+  .timeline::before {
+    left: 48px;
+  }
+  .tl-date {
+    left: -60px;
+    width: 52px;
+    font-size: 13px;
+    padding-top: 8px;
+  }
+  .tl-day {
+    font-size: 10px;
+  }
+  .tl-content {
+    padding: 10px 12px;
+    margin-left: 14px;
+  }
+  .tl-content::before {
+    width: 10px;
+    height: 10px;
+    left: -8px;
+    top: 12px;
+  }
+  .tl-title {
+    font-size: 13px;
+  }
+  .tl-desc {
+    font-size: 12px;
+  }
+  /* ルール */
+  .rule-box {
+    padding: 14px;
+  }
+  .rule-item {
+    font-size: 13px;
+  }
+  /* ハイライト */
+  .highlight-box {
+    padding: 18px;
+  }
+  .highlight-box p {
+    font-size: 14px;
+  }
+  /* サポート範囲 */
+  .scope-box {
+    font-size: 13px;
+    padding: 12px 14px;
+  }
+  /* 結果 */
+  .result-box {
+    padding: 16px;
+  }
+  .result-item {
+    font-size: 14px;
+  }
+}
+
+/* ===== タブUI ===== */
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+.tab-btn {
+  flex: 1;
+  min-width: 120px;
+  padding: 12px 8px;
+  border: none;
+  background: #e8ddd2;
+  color: #8B7355;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 10px 10px 0 0;
+  transition: background 0.3s, color 0.3s;
+  text-align: center;
+  line-height: 1.4;
+}
+.tab-btn.active {
+  background: #fff;
+  color: #6D2E46;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.06);
+}
+.tab-btn:hover:not(.active) {
+  background: #f0e8df;
+}
+.tab-panel {
+  display: none;
+  background: #fff;
+  border-radius: 0 0 12px 12px;
+  padding: 24px 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.tab-panel.active {
+  display: block;
+}
+.tab-panel h2:first-child {
+  margin-top: 0;
+}
+/* 提案カード */
+.idea-card {
+  background: #f8f4ef;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 14px;
+  border-left: 4px solid #C4956A;
+}
+.idea-card h3 {
+  font-size: 15px;
+  color: #6D2E46;
+  margin-bottom: 6px;
+}
+.idea-card p {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.idea-tag {
+  display: inline-block;
+  font-size: 11px;
+  background: #6D2E46;
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 4px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+}
+.idea-tag-blue {
+  background: #2B5F8A;
+}
+.idea-tag-green {
+  background: #2B8A5F;
+}
+/* チェックリスト */
+.checklist {
+  margin: 12px 0;
+}
+.checklist-item {
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  align-items: flex-start;
+}
+.checklist-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #C4956A;
+  border-radius: 4px;
+  margin-top: 2px;
+}
+.checklist-text strong {
+  color: #6D2E46;
+}
+/* 診断ツールモック */
+.shindan-mock {
+  background: #7AABCF;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px 0;
+}
+.shindan-bubble {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 10px;
+}
+.shindan-bubble p {
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 8px;
+}
+.shindan-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.shindan-choice {
+  background: #06C755;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+@media (max-width: 600px) {
+  .tabs {
+    gap: 3px;
+  }
+  .tab-btn {
+    font-size: 11px;
+    padding: 10px 6px;
+    min-width: 0;
+  }
+  .tab-panel {
+    padding: 18px 14px;
+  }
+  .idea-card {
+    padding: 14px;
+  }
+  .idea-card h3 {
+    font-size: 14px;
+  }
+}
+/* ===== 提案テーブル ===== */
+.proposal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 20px;
+  font-size: 14px;
+}
+.proposal-table th {
+  background: #f0e8df;
+  color: #6D2E46;
+  font-weight: 700;
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 2px solid #C4956A;
+}
+.proposal-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+  line-height: 1.7;
+}
+.proposal-table td:first-child {
+  font-weight: 700;
+  color: #6D2E46;
+  white-space: nowrap;
+  width: 35%;
+}
+.proposal-table tr:last-child td {
+  border-bottom: none;
+}
+@media (max-width: 600px) {
+  .proposal-table {
+    font-size: 13px;
+  }
+  .proposal-table th,
+  .proposal-table td {
+    padding: 10px;
+  }
+  .proposal-table td:first-child {
+    white-space: normal;
+    width: 30%;
+  }
 }
 </style>
 </head>
 <body>
 
-<h1>美子さん LINE + WP 月次運用フロー</h1>
+<h1>LINE + ホームページ<br>運用サポートのご提案</h1>
+<p class="subtitle">よしこさんの日々の配信とサイト更新をサポートします</p>
 
-<!-- Flow -->
-<div class="flow">
-  <div class="flow-step"><strong>美子さん</strong><br>イベント情報を伝える</div>
-  <div class="flow-arrow">&#9654;</div>
-  <div class="flow-step"><strong>スプシ</strong><br>情報をまとめる</div>
-  <div class="flow-arrow">&#9654;</div>
-  <div class="flow-step"><strong>LINE + WP</strong><br>それぞれ更新</div>
-  <div class="flow-arrow">&#9654;</div>
-  <div class="flow-step"><strong>確認</strong><br>二人でチェック</div>
+<!-- ===== タブナビゲーション ===== -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab(0)">運用サポート提案</button>
+  <button class="tab-btn" onclick="switchTab(1)">今後できること</button>
+  <button class="tab-btn" onclick="switchTab(2)">HP譲渡の確認事項</button>
 </div>
 
-<div class="two-col">
-  <!-- Left: 作業内訳 -->
-  <div>
-    <div class="section-title">作業の内訳</div>
-    <table>
-      <tr><th>作業</th><th>時間</th><th>内容</th></tr>
-      <tr><td>スプシまとめ</td><td>10分</td><td>イベント名・日時・画像・URL記入</td></tr>
-      <tr><td>LINEカード更新</td><td>20分</td><td>カードタイプ5枚作成・キーワード応答設定</td></tr>
-      <tr><td>WP更新</td><td>20分</td><td>イベントページ更新・申込リンク設置</td></tr>
-      <tr><td>動作確認</td><td>10分</td><td>二人でLINE・WPをチェック</td></tr>
-      <tr class="total-row"><td>合計</td><td colspan="2">約1時間 / 月</td></tr>
-    </table>
+<!-- ===== TAB 1: 運用サポート提案 ===== -->
+<div class="tab-panel active" id="tab-0">
 
-    <div class="highlight">
-      <div class="highlight-title">提案：月1回「更新会」をやりませんか？</div>
-      <p>毎月 月末の金曜に、二人でZoomを繋いで1時間で全部終わらせる。</p>
-      <div class="checks">
-        <div class="check-item"><span>&#10004;</span><span>一人だと後回し → 一緒なら確実に終わる</span></div>
-        <div class="check-item"><span>&#10004;</span><span>美子さんにも期限を伝えやすい</span></div>
-        <div class="check-item"><span>&#10004;</span><span>確認も一緒にできてミスが減る</span></div>
+<!-- ===== サポート概要 ===== -->
+<h2>サポートの概要</h2>
+<div class="card">
+  <p>よしこさんの日々の<strong>LINE運用</strong>と<strong>ご自身の独自サイトの保守管理</strong>をサポートします。</p>
+  <p>よしこさんには、スケジュールやイベント情報をやりやすい方法で共有いただくだけ。<br>設定・更新はすべてこちらで対応します。</p>
+</div>
+
+<!-- ===== STEP 1: ホームページ ===== -->
+<h2>STEP 1：ホームページにイベントページを作ります</h2>
+<p>まず、ご自身の独自サイトに「イベント一覧ページ」を新設します。<br>毎月のイベントがひと目で確認でき、そのまま申し込みもできるページです。</p>
+
+<div class="mockup">
+  <div class="mockup-header">
+    最新のイベント情報
+    <small>Today Japanが開催するセミナー・ワークショップのご案内</small>
+  </div>
+  <div class="mockup-body">
+    <div class="mockup-event">
+      <div class="mockup-event-img" style="background: #B22222;">言葉がけ<br>講座</div>
+      <div class="mockup-event-body">
+        <div class="mockup-event-title">言葉がけ講座</div>
+        <div class="mockup-event-date">5月10日（土）10:00〜12:00 / 東京</div>
+        <span class="mockup-event-btn">お申込みはこちら</span>
+      </div>
+    </div>
+    <div class="mockup-event">
+      <div class="mockup-event-img" style="background: #2B5F8A;">コミュニ<br>ケーション</div>
+      <div class="mockup-event-body">
+        <div class="mockup-event-title">コミュニケーションセミナー</div>
+        <div class="mockup-event-date">5月17日（土）13:00〜15:00 / 東京</div>
+        <span class="mockup-event-btn">お申込みはこちら</span>
+      </div>
+    </div>
+    <div class="mockup-event">
+      <div class="mockup-event-img" style="background: #8A6B2B;">KIMONO<br>THERAPY</div>
+      <div class="mockup-event-body">
+        <div class="mockup-event-title">KIMONO THERAPY</div>
+        <div class="mockup-event-date">5月24日（土）10:00〜16:00 / 鎌倉</div>
+        <span class="mockup-event-btn">お申込みはこちら</span>
       </div>
     </div>
   </div>
+</div>
+<p class="mockup-caption">&#9650; ホームページのイベントページイメージ</p>
 
-  <!-- Right: スケジュール & 結果 -->
-  <div>
-    <div class="section-title">月間スケジュール</div>
-    <div class="result-box" style="margin-bottom: 12px;">
-      <div class="result-item"><span>&#9654;</span><span><strong>毎月25日前後：</strong>美子さんからイベント情報をもらう</span></div>
-      <div class="result-item"><span>&#9654;</span><span><strong>月末の金曜：</strong>二人で1時間の更新会</span></div>
-      <div class="result-item"><span>&#9654;</span><span><strong>翌月1日〜：</strong>自動配信スタート</span></div>
+<!-- ===== STEP 2: LINE ===== -->
+<h2>STEP 2：LINEにも同じ内容を反映します</h2>
+<p>ホームページの内容に合わせて、LINEのカードタイプも更新します。<br>LINE配信は<strong>手動で運用</strong>し、月4回でも8回でも必要な分を対応いたします。</p>
+
+<div class="line-mockup">
+  <div class="line-card-row">
+    <div class="line-card">
+      <div class="line-card-img" style="background: #B22222;">言葉がけ<br>講座</div>
+      <div class="line-card-body">
+        <div class="line-card-title">言葉がけ講座</div>
+        <div class="line-card-sub">5/10（土）10:00〜</div>
+        <span class="line-card-link">&#9654; お申込みはこちら</span>
+      </div>
     </div>
-
-    <div class="section-title">これが回れば</div>
-    <div class="result-box" style="margin-bottom: 12px;">
-      <div class="result-item"><span>&#9733;</span><span><strong>美子さん：</strong>スケジュールを伝えるだけ</span></div>
-      <div class="result-item"><span>&#9733;</span><span><strong>私たち：</strong>月1回、1時間だけ。あとは自動</span></div>
-      <div class="result-item"><span>&#9733;</span><span><strong>急な追加：</strong>別途対応（ルールを事前に決める）</span></div>
+    <div class="line-card">
+      <div class="line-card-img" style="background: #8A6B2B;">KIMONO<br>THERAPY</div>
+      <div class="line-card-body">
+        <div class="line-card-title">KIMONO THERAPY</div>
+        <div class="line-card-sub">5/24（土）10:00〜</div>
+        <span class="line-card-link">&#9654; 詳細はこちら</span>
+      </div>
     </div>
-
-    <div class="section-title">金額の目安</div>
-    <table>
-      <tr><th>項目</th><th>金額</th></tr>
-      <tr><td>初期構築（自動配信・リッチメニュー等）</td><td>5〜10万円</td></tr>
-      <tr><td>月額運用（更新会 + 自動配信管理）</td><td>1.5〜3万円/月</td></tr>
-      <tr><td>臨時対応（急なイベント告知等）</td><td>3,000〜5,000円/回</td></tr>
-    </table>
-    <p style="font-size: 11px; color: #888; margin-top: 6px;">※ 金額はチカナンと相談して決めましょう</p>
+    <div class="line-card">
+      <div class="line-card-img" style="background: #6B2B8A;">結ぶ<br>ライブトーク</div>
+      <div class="line-card-body">
+        <div class="line-card-title">結ぶライブトーク</div>
+        <div class="line-card-sub">毎週土曜 12:30〜</div>
+        <span class="line-card-link">&#9654; 参加する</span>
+      </div>
+    </div>
   </div>
 </div>
+<p class="mockup-caption">&#9650; LINEカードタイプのイメージ（今と同じ形式です）</p>
+
+<!-- ===== 運用フロー ===== -->
+<h2>毎月の運用フロー</h2>
+
+<div class="flow-vertical">
+  <div class="flow-step"><strong>よしこさん</strong>がスケジュールを共有<br><span style="font-size:13px; color:#888;">（スプレッドシート、ドキュメント、音声データなど、やりやすい方法でOKです）</span></div>
+  <div class="flow-arrow">&#9660;</div>
+  <div class="flow-step">いただいた情報をもとに、<strong>HP + LINE + 配信文を一括で更新</strong></div>
+  <div class="flow-arrow">&#9660;</div>
+  <div class="flow-step"><strong>動作確認</strong>をして完了。よしこさんにご報告します</div>
+</div>
+
+<!-- ===== 月間スケジュール ===== -->
+<h2>月間スケジュール（例：5月イベントの場合）</h2>
+
+<div class="calendar-wrap">
+  <div class="cal-month-row">
+    <div class="cal-month cal-prev">4月</div>
+    <div class="cal-month cal-current">5月</div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">4/20<span class="tl-day">頃</span></div>
+      <div class="tl-content">
+        <div class="tl-label tl-label-1">STEP 1</div>
+        <div class="tl-title">よしこさんからスケジュール共有</div>
+        <div class="tl-desc">5月に開催するイベントの情報をお知らせください</div>
+        <div class="tl-who">よしこさん</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">4/21<span class="tl-day">〜25</span></div>
+      <div class="tl-content">
+        <div class="tl-label tl-label-2">STEP 2</div>
+        <div class="tl-title">HP + LINE を一括更新</div>
+        <div class="tl-desc">イベントページ更新、LINEカード作成、配信文の準備</div>
+        <div class="tl-who">サポートチーム</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">4/25<span class="tl-day">頃</span></div>
+      <div class="tl-content">
+        <div class="tl-label tl-label-3">STEP 3</div>
+        <div class="tl-title">動作確認 + よしこさんにご報告</div>
+        <div class="tl-desc">リンク・表示をチェックし、確認いただきます</div>
+        <div class="tl-who">全員</div>
+      </div>
+    </div>
+    <div class="tl-item tl-step5">
+      <div class="tl-date">5/1<span class="tl-day">〜</span></div>
+      <div class="tl-content">
+        <div class="tl-label tl-label-4">STEP 4</div>
+        <div class="tl-title">「今月のスケジュール」として配信開始</div>
+        <div class="tl-desc">月初にLINEで今月のイベント情報をまとめて配信します</div>
+        <div class="tl-who">サポートチーム</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 運用ルール ===== -->
+<h2>運用ルール</h2>
+
+<div class="rule-box">
+  <div class="rule-item">
+    <span class="rule-icon">1</span>
+    <span><strong>スケジュールの共有：</strong>スプレッドシート、ドキュメント、音声データなど、よしこさんのやりやすい方法で共有いただきます。</span>
+  </div>
+  <div class="rule-item">
+    <span class="rule-icon">2</span>
+    <span><strong>更新タイミング：</strong>毎月末までにいただいたスケジュールをもとに、翌月初に一括で更新します。</span>
+  </div>
+  <div class="rule-item">
+    <span class="rule-icon">3</span>
+    <span><strong>追加の案件：</strong>指定の締め切り日時以降に新しく発生した案件については、ご自身で設定いただくか、別途プラス料金が発生いたします。</span>
+  </div>
+  <div class="rule-item">
+    <span class="rule-icon">4</span>
+    <span><strong>LINE配信：</strong>月4回でも8回でも、必要な分をこちらで対応します。</span>
+  </div>
+  <div class="rule-item">
+    <span class="rule-icon">5</span>
+    <span><strong>緊急対応：</strong>大変恐れ入りますが、緊急対応はできかねますので、その点はご了承ください。</span>
+  </div>
+</div>
+
+<!-- ===== サポート範囲 ===== -->
+<h2>サポートの範囲</h2>
+
+<div class="scope-box">
+  今回は<strong>日々のLINE運用</strong>と<strong>ホームページの保守管理</strong>がメインとなります。<br>
+  戦略的なアドバイスなどは今回のサポート外となりますこと、ご了承ください。
+</div>
+
+<!-- ===== プランのゴール ===== -->
+<div class="highlight-box">
+  <h2>3ヶ月間のサポートプラン</h2>
+  <p>今回は3ヶ月間のサポートプランとさせていただきます。</p>
+  <p>この3ヶ月の間に、お互いより少ない労力で情報を回せる形を作り、運用をマニュアル化します。</p>
+  <p>最終的には、後任の方がお一人でも運用できる形にまとめ、マニュアルとしてお渡しいたします。</p>
+</div>
+
+<!-- ===== ロードマップ ===== -->
+<h2>3ヶ月のロードマップ</h2>
+
+<div class="card">
+  <span class="phase-label phase-1">1ヶ月目：構築</span>
+  <ul>
+    <li>ご自身の独自サイトにイベントページを構築</li>
+    <li>LINEカードタイプ・配信の運用開始</li>
+    <li>月次更新のリズムを作る</li>
+  </ul>
+</div>
+
+<div class="card">
+  <span class="phase-label phase-2">2ヶ月目：安定化</span>
+  <ul>
+    <li>運用を回しながら改善点を洗い出す</li>
+    <li>より効率的なやり取りの形を整える</li>
+  </ul>
+</div>
+
+<div class="card">
+  <span class="phase-label phase-3">3ヶ月目：マニュアル化・引き渡し</span>
+  <ul>
+    <li>すべての運用手順をマニュアルにまとめる</li>
+    <li>後任の方でも運用できる形に仕上げる</li>
+    <li>マニュアルをお渡しして完了</li>
+  </ul>
+</div>
+
+<!-- ===== よしこさんのメリット ===== -->
+<h2>よしこさんにしていただくこと</h2>
+<div class="result-box">
+  <div class="result-item"><span>&#9733;</span><span>毎月のイベントスケジュールを共有していただくだけ</span></div>
+  <div class="result-item"><span>&#9733;</span><span>LINE・ホームページの設定はすべてこちらで対応します</span></div>
+  <div class="result-item"><span>&#9733;</span><span>3ヶ月後にはマニュアルが完成し、後任の方に引き継げます</span></div>
+</div>
+
+</div><!-- /tab-0 -->
+
+<!-- ===== TAB 2: 今後できること ===== -->
+<div class="tab-panel" id="tab-1">
+
+<h2>今後よしこさんができること</h2>
+<p>3ヶ月のサポート期間中 + その後にかけて、ホームページとLINEを起点にさらに活用できる施策をまとめました。</p>
+
+<!-- ===== すぐできること（サイト改善） ===== -->
+<h2>すぐできること（サイト改善）</h2>
+
+<div class="card">
+<table class="proposal-table">
+  <tr><th>提案</th><th>効果</th></tr>
+  <tr>
+    <td>Googleビジネスプロフィール登録</td>
+    <td>「名古屋 マナー研修」で検索した時にマップ付きで表示される。無料で効果が大きい</td>
+  </tr>
+  <tr>
+    <td>お客様の声ページ追加</td>
+    <td>研修を受けた企業担当者や講演会参加者の感想。信頼性が一気に上がる</td>
+  </tr>
+  <tr>
+    <td>実績・導入事例ページ</td>
+    <td>「どんな企業に導入されたか」が分かると法人からの問い合わせが増える</td>
+  </tr>
+  <tr>
+    <td>ブログの定期更新</td>
+    <td>現在3記事だけ。月2本でも「名古屋 ビジネスマナー コラム」等で流入が増える</td>
+  </tr>
+  <tr>
+    <td>Google Analytics導入</td>
+    <td>どのページが見られているか、どのキーワードで来ているかが分かる</td>
+  </tr>
+</table>
+</div>
+
+<!-- ===== コンテンツ・集客のアイデア ===== -->
+<h2>コンテンツ・集客のアイデア</h2>
+
+<div class="card">
+<table class="proposal-table">
+  <tr><th>提案</th><th>なぜ効くか</th></tr>
+  <tr>
+    <td>YouTube切り抜き → ブログ記事化</td>
+    <td>既にYouTubeチャンネルがある。動画の内容を文字起こし+要約してブログに載せると、SEOで二重に効く</td>
+  </tr>
+  <tr>
+    <td>Instagram → HPへの動線強化</td>
+    <td>投稿にHPリンクを貼る。ストーリーズで「詳しくはHPへ」の導線を作る</td>
+  </tr>
+  <tr>
+    <td>無料PDF資料の配布</td>
+    <td>例：「ビジネスマナー10のチェックリスト」をLINE友だち追加と引き換えに配布。リスト獲得に使える</td>
+  </tr>
+  <tr>
+    <td>メルマガ or 音声配信のアーカイブページ</td>
+    <td>サイト内に音声配信の一覧ページを作ると、コンテンツ量が増えてSEOにも効く</td>
+  </tr>
+</table>
+</div>
+
+<!-- ===== LINE連携でできること ===== -->
+<h2>LINE連携でできること（あやの得意分野）</h2>
+
+<div class="card">
+<table class="proposal-table">
+  <tr><th>提案</th><th>内容</th></tr>
+  <tr>
+    <td>LINE公式からの自動ステップ配信</td>
+    <td>友だち追加後に「よしこさんの想い → サービス紹介 → お客様の声 → 無料面談誘導」を自動で配信</td>
+  </tr>
+  <tr>
+    <td>リッチメニューの整備</td>
+    <td>「企業の方」「子育て世代の方」「輝きたい女性の方」で入口を分けて、それぞれ最適な情報に誘導</td>
+  </tr>
+  <tr>
+    <td>セミナー申込のLINE完結</td>
+    <td>HPの問い合わせフォームからLINEに誘導 → LINE内で予約完結。離脱率が下がる</td>
+  </tr>
+  <tr>
+    <td>音声配信の通知</td>
+    <td>新しい音声が出たらLINEで自動通知。リピーターの定着に効く</td>
+  </tr>
+</table>
+</div>
+
+<!-- ===== LINE診断ツール ===== -->
+<h2>LINE診断ツールのアイデア</h2>
+<p>現在のLINE配信で「これどっちだと思う？」という内容を、<strong>クイズ形式の診断ツール</strong>にできます。<br>読者が選択肢をタップするだけで結果が表示され、楽しみながらマナーの知識が身につく仕組みです。</p>
+
+<!-- 診断ツールモックアップ -->
+<div class="shindan-mock">
+  <div class="shindan-bubble">
+    <p>Q. 名刺交換のとき、正しいのはどっち？</p>
+    <div class="shindan-choices">
+      <div class="shindan-choice">A. 相手より先に名刺を差し出す</div>
+      <div class="shindan-choice">B. 相手が出すまで待つ</div>
+    </div>
+  </div>
+  <div class="shindan-bubble">
+    <p style="color:#06C755; font-size:13px;">正解はA！</p>
+    <p style="font-size:13px; font-weight:400;">訪問した側、目下の立場から先に名刺を差し出すのがマナーです。</p>
+  </div>
+</div>
+<p class="mockup-caption">&#9650; LINE診断ツールのイメージ</p>
+
+<div class="note" style="margin:12px 0;">
+  定期的に診断を配信することで、ブロック率の低下 + 既読率UPが期待できます。<br>
+  よしこさんの研修テーマ（言葉遣い・テーブルマナー・着物の知識など）は診断コンテンツとの相性が抜群です。
+</div>
+
+</div><!-- /tab-1 -->
+
+<!-- ===== TAB 3: HP譲渡の確認事項 ===== -->
+<div class="tab-panel" id="tab-2">
+
+<h2>ホームページ譲渡の確認事項</h2>
+<p>現在のホームページ（todayjapan.net）を、Claude Codeで制作した新しいサイトに切り替えるために確認が必要な項目です。</p>
+
+<div class="checklist">
+
+  <div class="checklist-item">
+    <div class="checklist-icon"></div>
+    <div class="checklist-text">
+      <strong>ドメイン管理場所の確認</strong><br>
+      todayjapan.net のドメインをどこで取得・管理しているか確認してください。<br>
+      <span style="font-size:13px; color:#888;">（お名前.com / ムームードメイン / Xserver / サイトビルダー付属 など）</span>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checklist-icon"></div>
+    <div class="checklist-text">
+      <strong>現在のサイトビルダー契約の確認</strong><br>
+      今のホームページで使っているサービス（サイトビルダー）の契約内容を確認してください。<br>
+      <span style="font-size:13px; color:#888;">解約するとドメインも使えなくなるケースがあるため、ドメインが独立管理か要確認</span>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checklist-icon"></div>
+    <div class="checklist-text">
+      <strong>DNS設定の切り替え</strong><br>
+      ドメインのDNS設定を、現在のサーバーからVercel（新サイトのホスティング先）に変更します。<br>
+      <span style="font-size:13px; color:#888;">こちらで対応可能ですが、ドメイン管理画面へのログイン情報が必要になります</span>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checklist-icon"></div>
+    <div class="checklist-text">
+      <strong>切り替えタイミングの決定</strong><br>
+      DNS切り替えには最大48時間かかることがあります。イベント直前は避けましょう。<br>
+      <span style="font-size:13px; color:#888;">おすすめ：月末の月曜日〜水曜日あたり</span>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checklist-icon"></div>
+    <div class="checklist-text">
+      <strong>GA4トラッキングコードの移行</strong><br>
+      現在のサイトに設定されているGoogle Analytics（G-1HHGCQ0NHW）を新サイトにも設定します。<br>
+      <span style="font-size:13px; color:#888;">こちらで対応可能です。データの継続性も保たれます</span>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checklist-icon"></div>
+    <div class="checklist-text">
+      <strong>メールアドレスの確認</strong><br>
+      todayjapan.net ドメインのメールアドレスを使用している場合、DNS切り替えで影響が出る可能性があります。<br>
+      <span style="font-size:13px; color:#888;">Gmailなど外部メールサービスをお使いの場合は影響なし</span>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checklist-icon"></div>
+    <div class="checklist-text">
+      <strong>SSL証明書（https）</strong><br>
+      Vercelでは無料でSSL証明書が自動発行されるため、追加費用はかかりません。<br>
+      <span style="font-size:13px; color:#888;">切り替え後、自動的にhttps対応になります</span>
+    </div>
+  </div>
+
+</div>
+
+<div class="highlight-box" style="margin-top:24px;">
+  <h2>切り替えの流れ</h2>
+  <p>1. よしこさんからドメイン管理画面のログイン情報を共有</p>
+  <p>2. こちらでDNS設定を変更</p>
+  <p>3. 24〜48時間で新サイトに切り替わる</p>
+  <p>4. 動作確認 → 完了</p>
+</div>
+
+<div class="note" style="margin-top:16px;">
+  不明な点はこちらで調査・サポートしますので、まずは「ドメインをどこで取ったか」だけ教えていただければ大丈夫です。
+</div>
+
+</div><!-- /tab-2 -->
+
+<!-- ===== タブ切り替えJS ===== -->
+<script>
+function switchTab(index) {
+  var btns = document.querySelectorAll('.tab-btn');
+  var panels = document.querySelectorAll('.tab-panel');
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].classList.remove('active');
+    panels[i].classList.remove('active');
+  }
+  btns[index].classList.add('active');
+  panels[index].classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
 
 </body>
 </html>

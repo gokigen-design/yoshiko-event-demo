@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Code 導入セッション | Today Japan</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans JP',sans-serif;background:#faf9f7;color:#333;font-size:15px;line-height:1.8;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+
+/* TOP */
+.top{background:#1a1a2e;padding:56px 24px 48px;text-align:center;}
+.top-label{font-size:11px;letter-spacing:.25em;color:#B22222;margin-bottom:12px;}
+.top-title{font-family:'Zen Old Mincho',serif;font-size:32px;color:#fff;line-height:1.5;margin-bottom:10px;}
+.top-title span{color:#B22222;}
+.top-sub{font-size:13px;color:rgba(255,255,255,.45);line-height:2;}
+.top-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:20px;}
+.top-tag{font-size:11px;border:1px solid rgba(178,34,34,.5);color:#B22222;padding:4px 14px;border-radius:20px;}
+
+/* WRAP */
+.wrap{max-width:760px;margin:0 auto;padding:0 20px;}
+
+/* SECTION */
+.sec{padding:52px 0;}
+.sec-label{font-size:10px;letter-spacing:.2em;color:#B22222;margin-bottom:6px;}
+.sec-title{font-family:'Zen Old Mincho',serif;font-size:22px;color:#1a1a2e;margin-bottom:28px;}
+.divider{height:1px;background:linear-gradient(to right,#B22222,transparent);margin-bottom:40px;opacity:.3;}
+
+/* GOAL CARDS */
+.goal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.goal-card{background:#fff;border:1px solid #e8e0d8;padding:24px 18px;border-radius:4px;text-align:center;}
+.goal-num{font-size:28px;font-family:'Zen Old Mincho',serif;color:#B22222;line-height:1;}
+.goal-text{font-size:13px;color:#333;margin-top:10px;line-height:1.7;}
+.goal-check{font-size:10px;color:#888;margin-top:8px;}
+
+/* TIMELINE */
+.timeline{display:flex;flex-direction:column;gap:0;}
+.tl-item{display:grid;grid-template-columns:80px 1fr;gap:0;}
+.tl-time{padding:20px 16px 20px 0;text-align:right;}
+.tl-time-text{font-size:12px;color:#888;white-space:nowrap;}
+.tl-body{border-left:2px solid #e0d8d0;padding:16px 0 16px 24px;position:relative;}
+.tl-body::before{content:'';width:10px;height:10px;border-radius:50%;background:#B22222;position:absolute;left:-6px;top:22px;}
+.tl-item:last-child .tl-body{border-left-color:transparent;}
+.tl-badge{display:inline-block;font-size:10px;padding:2px 10px;border-radius:12px;margin-bottom:6px;letter-spacing:.05em;}
+.badge-must{background:#fdf0f0;color:#B22222;border:1px solid rgba(178,34,34,.3);}
+.badge-opt{background:#f0f4ff;color:#4a6fa5;border:1px solid rgba(74,111,165,.3);}
+.tl-name{font-size:15px;font-weight:500;color:#1a1a2e;margin-bottom:4px;}
+.tl-desc{font-size:12px;color:#777;line-height:1.8;}
+.tl-wow{font-size:12px;color:#B22222;margin-top:8px;display:flex;align-items:center;gap:6px;}
+.tl-wow::before{content:'★';}
+
+/* ROLES */
+.role-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.role-card{background:#fff;border:1px solid #e8e0d8;border-radius:4px;overflow:hidden;}
+.role-head{padding:14px 20px;font-size:13px;font-weight:500;}
+.role-head.red{background:#B22222;color:#fff;}
+.role-head.dark{background:#1a1a2e;color:#fff;}
+.role-body{padding:18px 20px;}
+.role-item{font-size:13px;color:#555;padding:5px 0;border-bottom:1px solid #f0ebe4;display:flex;align-items:flex-start;gap:8px;line-height:1.6;}
+.role-item:last-child{border-bottom:none;}
+.role-item::before{content:'→';color:#B22222;flex-shrink:0;margin-top:1px;}
+
+/* CHECKLIST */
+.check-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.check-box{background:#fff;border:1px solid #e8e0d8;border-radius:4px;padding:20px;}
+.check-head{font-size:12px;font-weight:500;color:#1a1a2e;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid #B22222;}
+.check-item{display:flex;align-items:flex-start;gap:10px;padding:6px 0;font-size:13px;color:#555;line-height:1.6;}
+.check-box-icon{width:16px;height:16px;border:1.5px solid #ccc;border-radius:3px;flex-shrink:0;margin-top:2px;}
+
+/* FINAL GOAL */
+.final{background:#1a1a2e;padding:40px 32px;border-radius:4px;text-align:center;margin-bottom:8px;}
+.final-title{font-family:'Zen Old Mincho',serif;font-size:20px;color:#fff;margin-bottom:20px;}
+.final-items{display:flex;flex-direction:column;gap:10px;text-align:left;max-width:420px;margin:0 auto;}
+.final-item{display:flex;align-items:flex-start;gap:12px;font-size:13px;color:rgba(255,255,255,.75);line-height:1.7;}
+.final-item-num{background:#B22222;color:#fff;font-size:11px;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+
+/* FOOTER */
+.ftr{text-align:center;padding:32px 20px;font-size:11px;color:#aaa;}
+
+@media(max-width:600px){
+  .top-title{font-size:24px;}
+  .goal-grid{grid-template-columns:1fr;}
+  .role-grid{grid-template-columns:1fr;}
+  .check-cols{grid-template-columns:1fr;}
+  .tl-item{grid-template-columns:60px 1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <p class="top-label">SESSION PLAN</p>
+  <h1 class="top-title">Claude Code <span>導入セッション</span><br>Today Japan 様</h1>
+  <p class="top-sub">ホームページを「自分たちで動かせる」環境をつくる<br>2〜3時間 / 訪問型</p>
+  <div class="top-tags">
+    <span class="top-tag">Claude Code 導入</span>
+    <span class="top-tag">GitHub 連携</span>
+    <span class="top-tag">Cloudflare デプロイ</span>
+    <span class="top-tag">複数人で更新できる環境</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- GOAL -->
+  <div class="sec">
+    <p class="sec-label">GOAL</p>
+    <h2 class="sec-title">このセッションで達成すること</h2>
+    <div class="divider"></div>
+    <div class="goal-grid">
+      <div class="goal-card">
+        <div class="goal-num">01</div>
+        <p class="goal-text">Claude Code を<br>インストールして<br>動かせる状態にする</p>
+        <p class="goal-check">PCにセットアップ完了</p>
+      </div>
+      <div class="goal-card">
+        <div class="goal-num">02</div>
+        <p class="goal-text">GitHub アカウント作成＋<br>チームの共同リポジトリに<br>参加できる</p>
+        <p class="goal-check">招待&承認まで完了</p>
+      </div>
+      <div class="goal-card">
+        <div class="goal-num">03</div>
+        <p class="goal-text">ホームページを<br>自分で変更して<br>公開サイトに反映させる</p>
+        <p class="goal-check">Cloudflare 自動デプロイ</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="sec" style="padding-top:0;">
+    <p class="sec-label">TIMELINE</p>
+    <h2 class="sec-title">当日のながれ（目安 2.5時間）</h2>
+    <div class="divider"></div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time"><span class="tl-time-text">0:00〜<br>0:30</span></div>
+        <div class="tl-body">
+          <span class="tl-badge badge-must">必須</span>
+          <p class="tl-name">Claude Code インストール</p>
+          <p class="tl-desc">スタッフがよしこさんのPCにセットアップ。別スタッフがフォルダ・ファイルの概念をやさしく説明。</p>
+          <p class="tl-wow">「入った！動いた！」</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time"><span class="tl-time-text">0:30〜<br>0:55</span></div>
+        <div class="tl-body">
+          <span class="tl-badge badge-must">必須</span>
+          <p class="tl-name">フォルダ・ファイルの概念</p>
+          <p class="tl-desc">「HPはファイルの集まり」「どこにあるか」を図解で説明。実際にフォルダを開いて確認。</p>
+          <p class="tl-wow">「なるほど、こういう仕組みか！」</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time"><span class="tl-time-text">0:55〜<br>1:25</span></div>
+        <div class="tl-body">
+          <span class="tl-badge badge-must">必須</span>
+          <p class="tl-name">GitHub アカウント作成 ＋ リポジトリ参加</p>
+          <p class="tl-desc">よしこさんのアカウントを一緒に作成。チームのリポジトリへの招待メールを承認。</p>
+          <p class="tl-wow">「チームに入れた！」</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time"><span class="tl-time-text">1:25〜<br>2:00</span></div>
+        <div class="tl-body">
+          <span class="tl-badge badge-must">必須</span>
+          <p class="tl-name">HP の文字を変えて Push → 公開反映</p>
+          <p class="tl-desc">よしこさんがHPのテキストを1箇所変更 → GitHub に push → Cloudflare が自動でサイトを更新。</p>
+          <p class="tl-wow">「本物のHPが変わった！！」</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time"><span class="tl-time-text">2:00〜<br>2:30</span></div>
+        <div class="tl-body">
+          <span class="tl-badge badge-opt">あれば最高</span>
+          <p class="tl-name">質問タイム ＋ 次のステップ確認</p>
+          <p class="tl-desc">疑問を解消。今後オンラインでできること、チームのサポート体制を共有。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROLES -->
+  <div class="sec" style="padding-top:0;">
+    <p class="sec-label">ROLES</p>
+    <h2 class="sec-title">スタッフの役割分担</h2>
+    <div class="divider"></div>
+    <div class="role-grid">
+      <div class="role-card">
+        <div class="role-head red">スタッフ A（作業担当）</div>
+        <div class="role-body">
+          <div class="role-item">Claude Code インストール・設定</div>
+          <div class="role-item">GitHub リポジトリのクローン</div>
+          <div class="role-item">Cloudflare の動作確認</div>
+          <div class="role-item">トラブル対応・技術的なサポート</div>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-head dark">スタッフ B（説明担当）</div>
+        <div class="role-body">
+          <div class="role-item">よしこさんへの概念説明</div>
+          <div class="role-item">フォルダ・ファイルの図解説明</div>
+          <div class="role-item">GitHub・Cloudflare の流れを言語化</div>
+          <div class="role-item">次のステップ・質問対応</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="sec" style="padding-top:0;">
+    <p class="sec-label">CHECKLIST</p>
+    <h2 class="sec-title">準備物チェックリスト</h2>
+    <div class="divider"></div>
+    <div class="check-cols">
+      <div class="check-box">
+        <div class="check-head">よしこさん側（事前準備）</div>
+        <div class="check-item"><div class="check-box-icon"></div>ノートPC（充電済み）</div>
+        <div class="check-item"><div class="check-box-icon"></div>Wi-Fi に繋がる環境</div>
+        <div class="check-item"><div class="check-box-icon"></div>メールアドレス（GitHub 登録用）</div>
+        <div class="check-item"><div class="check-box-icon"></div>クレジットカード（Claude Pro 登録用）※任意</div>
+      </div>
+      <div class="check-box">
+        <div class="check-head">スタッフ側（事前準備）</div>
+        <div class="check-item"><div class="check-box-icon"></div>GitHub リポジトリ作成済み</div>
+        <div class="check-item"><div class="check-box-icon"></div>Cloudflare Pages 連携済み</div>
+        <div class="check-item"><div class="check-box-icon"></div>よしこさんへの招待メール送信済み</div>
+        <div class="check-item"><div class="check-box-icon"></div>当日用ホームページデータ動作確認済み</div>
+        <div class="check-item"><div class="check-box-icon"></div>フォルダ概念の図解プリント or 画面共有用意</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL GOAL -->
+  <div class="sec" style="padding-top:0;">
+    <p class="sec-label">AFTER SESSION</p>
+    <h2 class="sec-title">セッション後にできること</h2>
+    <div class="divider"></div>
+    <div class="final">
+      <p class="final-title">このセッションが終わると…</p>
+      <div class="final-items">
+        <div class="final-item">
+          <div class="final-item-num">1</div>
+          <span>チームの誰かがファイルを変更して push すれば、<strong style="color:#fff;">ホームページが自動で更新</strong>される</span>
+        </div>
+        <div class="final-item">
+          <div class="final-item-num">2</div>
+          <span>よしこさんも GitHub から<strong style="color:#fff;">変更内容を確認・承認</strong>できる</span>
+        </div>
+        <div class="final-item">
+          <div class="final-item-num">3</div>
+          <span>Claude Code を使って<strong style="color:#fff;">文章修正や新ページ作成</strong>を依頼できる</span>
+        </div>
+        <div class="final-item">
+          <div class="final-item-num">4</div>
+          <span>残りの細かい設定・使い方は<strong style="color:#fff;">オンラインで続けてサポート</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="ftr">Today Japan × Claude Code 導入セッション資料 | Powered by AI Camp</div>
+
+</body>
+</html>
